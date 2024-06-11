@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java App Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+        }
+        h1, h2 {
+            text-align: left;
+        }
+        #endpoints {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .endpoint-section {
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            max-width: 400px;
+        }
+        .button-block {
+            margin: 10px 0;
+        }
+        button {
+            display: block;
+            margin: 5px 0;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Java App Endpoints</h1>
+
+    <div id="endpoints">
+        <div class="endpoint-section">
+            <button onclick="accessPublicEndpoint()">Access Public Endpoint</button>
+            <button onclick="accessPrivateEndpoint()">Access Private Endpoint</button>
+        </div>
+
+        <div class="endpoint-section">
+            <h2>Get All Users</h2>
+            <button onclick="getAllUsers()">Get All Users</button>
+        </div>
+
+        <div class="endpoint-section">
+            <h2>Get User by ID</h2>
+            <input type="text" id="userId" placeholder="Enter User ID">
+            <button onclick="getUserById(document.getElementById('userId').value)">Get User by ID</button>
+        </div>
+
+        <div class="endpoint-section">
+            <h2>Create User</h2>
+            <input type="text" id="createUserId" placeholder="Enter User ID">
+            <input type="text" id="createUserName" placeholder="Enter Name">
+            <button onclick="createUser(document.getElementById('createUserId').value, document.getElementById('createUserName').value)">
+                Create User
+            </button>
+        </div>
+
+        <div class="endpoint-section">
+            <h2>Update User by ID</h2>
+            <input type="text" id="updateUserId" placeholder="Enter User ID">
+            <input type="text" id="updateUserName" placeholder="Enter Name">
+            <button onclick="updateUserById(document.getElementById('updateUserId').value, document.getElementById('updateUserName').value)">
+                Update User by ID
+            </button>
+        </div>
+
+        <div class="endpoint-section">
+            <h2>Delete Users by IDs</h2>
+            <input type="text" id="deleteUserIds" placeholder="Enter User IDs (comma separated)">
+            <button onclick="deleteUsersByIds(document.getElementById('deleteUserIds').value)">Delete Users by IDs</button>
+        </div>
+
+        <div class="endpoint-section">
+            <h2>Get User by Name</h2>
+            <input type="text" id="getUserByName" placeholder="Enter User Name">
+            <button onclick="getUserByName(document.getElementById('getUserByName').value)">Get User by Name</button>
+        </div>
+    </div>
+
+    <div id="response"></div>
+</div>
+
+<script src="/scripts.js"></script>
+</body>
+</html>

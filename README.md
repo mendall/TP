@@ -58,7 +58,7 @@ Authorization:
 * GET /public/users: Retrieve all users
 * GET /public/users/{id}: Retrieve a user by ID
 * POST /private/users: Create a new user
-* PUT /private/users/{id}: Update a user by ID
+* PUT /private/users: Update a user by ID
 * DELETE /private/users: Delete users by IDs
 * GET /private/users/{name}: Retrieve a user by name
 
