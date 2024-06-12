@@ -4,52 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Java App Example</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-        }
-        h1, h2 {
-            text-align: left;
-        }
-        #endpoints {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        .endpoint-section {
-            margin-bottom: 20px;
-        }
-        input[type="text"] {
-            display: block;
-            margin: 10px 0;
-            padding: 10px;
-            width: 100%;
-            max-width: 400px;
-        }
-        .button-block {
-            margin: 10px 0;
-        }
-        button {
-            display: block;
-            margin: 5px 0;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="container">
-    <h1>Java App Endpoints</h1>
-
     <div id="endpoints">
+        <h1>Java App Public Endpoints</h1>
+
         <div class="endpoint-section">
+            <h2>Public endpoint to send kafka message</h2>
             <button onclick="accessPublicEndpoint()">Access Public Endpoint</button>
-            <button onclick="accessPrivateEndpoint()">Access Private Endpoint</button>
         </div>
 
         <div class="endpoint-section">
@@ -85,6 +49,13 @@
             <h2>Delete Users by IDs</h2>
             <input type="text" id="deleteUserIds" placeholder="Enter User IDs (comma separated)">
             <button onclick="deleteUsersByIds(document.getElementById('deleteUserIds').value)">Delete Users by IDs</button>
+        </div>
+
+        <h1>Java App Private Endpoints</h1>
+
+        <div class="endpoint-section">
+            <h2>Private endpoint to send kafka message</h2>
+            <button onclick="accessPrivateEndpoint()">Access Private Endpoint</button>
         </div>
 
         <div class="endpoint-section">

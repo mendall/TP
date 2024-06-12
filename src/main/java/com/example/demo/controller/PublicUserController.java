@@ -43,6 +43,35 @@ public class PublicUserController {
     }
 
     /**
+     * Creates a new user in the database.
+     * @param user the user object to be created
+     * @return the created user object
+     */
+    @RequestMapping(method = RequestMethod.POST)
+    public User createUser(@RequestBody User user) {
+        return userRepository.save(user);
+    }
+
+    /**
+     * Update an existing user in the database.
+     * @param user the User object representing the updated user
+     * @return the updated User object
+     */
+    @RequestMapping(method = RequestMethod.PUT)
+    public User updateUser(@RequestBody User user) {
+        return userRepository.save(user);
+    }
+
+    /**
+     * Deletes one or more users from the database based on the provided user IDs.
+     * @param ids List of Long representing the IDs of the users to be deleted
+     */
+    @RequestMapping(method = RequestMethod.DELETE)
+    public void deleteUser(@RequestBody List<Long> ids) {
+        userRepository.deleteAllById(ids);
+    }
+
+    /**
      * Handles the EntityNotFoundException and returns a ResponseEntity with the appropriate status code
      * and error message.
      *

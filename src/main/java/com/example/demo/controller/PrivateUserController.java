@@ -22,35 +22,6 @@ public class PrivateUserController {
     private final UserRepository userRepository;
 
     /**
-     * Creates a new user in the database.
-     * @param user the user object to be created
-     * @return the created user object
-     */
-    @PostMapping
-    public User createUser(@RequestBody User user) {
-        return userRepository.save(user);
-    }
-
-    /**
-     * Update an existing user in the database.
-     * @param user the User object representing the updated user
-     * @return the updated User object
-     */
-    @PutMapping
-    public User updateUser(@RequestBody User user) {
-        return userRepository.save(user);
-    }
-
-    /**
-     * Deletes one or more users from the database based on the provided user IDs.
-     * @param ids List of Long representing the IDs of the users to be deleted
-     */
-    @DeleteMapping
-    public void deleteUser(@RequestBody List<Long> ids) {
-        userRepository.deleteAllById(ids);
-    }
-
-    /**
      * Retrieves a user by their name.
      *
      * @param name the Name of the user to retrieve

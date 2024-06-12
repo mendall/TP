@@ -67,15 +67,15 @@ function getUserById(id) {
 
 // Function to create a new user
 function createUser(id, name) {
-    fetch('/private/users', {
+    fetch('/public/users', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: {
+        body: JSON.stringify({
             "id": id,
             "name": name
-        }
+        })
     })
         .then(response => response.json())
         .then(data => {
@@ -86,15 +86,15 @@ function createUser(id, name) {
 
 // Function to update a user by ID
 function updateUserById(id, name) {
-    fetch(`/private/users`, {
+    fetch(`/public/users`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: {
+        body: JSON.stringify({
             "id": id,
             "name": name
-        }
+        })
     })
         .then(response => response.json())
         .then(data => {
@@ -105,7 +105,7 @@ function updateUserById(id, name) {
 
 // Function to delete users by IDs
 function deleteUsersByIds(ids) {
-    fetch('/private/users', {
+    fetch('/public/users', {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'

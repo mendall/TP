@@ -8,6 +8,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * This class is responsible for configuring the security settings of the application.
@@ -31,9 +33,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     private void configureRequestAuthorization(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers(PUBLIC_URLS).permitAll()
-                .anyRequest().authenticated();
+        http.csrf()
+                .disable()
+                .authorizeRequests()
+                .antMatchers(PUBLIC_URLS)
+                .permitAll()
+                .anyRequest()
+                .authenticated();
     }
 
     private void configureFormAndLogout(HttpSecurity http) throws Exception {
