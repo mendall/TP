@@ -12,13 +12,13 @@ public class HomeController {
 
     @GetMapping("/public")
     public String publicEndpoint() {
-        kafkaProducerService.sendMessage("Message received by public endpoint");
-        return "Public endpoint";
+        kafkaProducerService.sendMessage("Message received by public endpoint and sent to kafka");
+        return "Public endpoint response";
     }
 
     @GetMapping("/private")
     public String privateEndpoint() {
-        kafkaProducerService.sendMessage("Message received by private endpoint");
-        return "Private endpoint";
+        kafkaProducerService.sendMessage("Message received by private endpoint and sent to kafka");
+        return "Private endpoint response";
     }
 }

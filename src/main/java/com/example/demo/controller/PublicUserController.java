@@ -30,7 +30,7 @@ public class PublicUserController {
      */
     @GetMapping("/{id}")
     public User getUserById(@PathVariable Long id) {
-        return userRepository.findById(id).orElseThrow(() -> new EntityNotFoundException(String.format("Entity with id %s not found", id)));
+        return userRepository.findById(id).orElseThrow(() -> new EntityNotFoundException(String.format("User with id %s not found", id)));
     }
 
     /**

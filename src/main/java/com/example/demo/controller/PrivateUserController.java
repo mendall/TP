@@ -8,8 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 /**
  * The PrivateUserController class represents a RESTful API controller for managing user entities.
  * It handles HTTP requests related to user resources and interacts with a UserRepository.
@@ -30,7 +28,7 @@ public class PrivateUserController {
      */
     @GetMapping("/{name}")
     public User getUserByName(@PathVariable String name) {
-        return userRepository.findUserByName(name).orElseThrow(() -> new EntityNotFoundException(String.format("Entity with name %s not found", name)));
+        return userRepository.findUserByName(name).orElseThrow(() -> new EntityNotFoundException(String.format("User with name %s not found", name)));
     }
 
     @ExceptionHandler(EntityNotFoundException.class)

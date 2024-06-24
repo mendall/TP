@@ -1,7 +1,6 @@
 package com.example.demo.interceptor;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
@@ -14,18 +13,17 @@ import java.io.IOException;
  * This interceptor logs the incoming request method and URI before it is handled, and the completed request method, URI, and response status after it is handled.
  */
 @Component
+@Slf4j
 public class LoggingInterceptor implements HandlerInterceptor {
-
-    private static final Logger logger = LoggerFactory.getLogger(LoggingInterceptor.class);
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
-        logger.info("Incoming request: {} {}", request.getMethod(), request.getRequestURI());
+        log.info("Incoming request: {} {}", request.getMethod(), request.getRequestURI());
         return true;
     }
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws IOException {
-        logger.info("Completed request: {} {} with status {}", request.getMethod(), request.getRequestURI(), response.getStatus());
+        log.info("Completed request: {} {} with status {}", request.getMethod(), request.getRequestURI(), response.getStatus());
     }
 }
